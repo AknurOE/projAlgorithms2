@@ -23,7 +23,8 @@ A `Metrics` class tracks **execution time, comparisons, swaps, allocations, recu
 ## Experimental Results 📊
 
 ### Running Time vs n
-![Running Time](time_vs_n.png)  
+<img width="1387" height="1101" alt="image" src="https://github.com/user-attachments/assets/d3e28429-6663-4b2d-b24b-1d6966fc2442" />
+
 - MergeSort & QuickSort → `Θ(n log n)`  
 - Select → linear  
 - Closest Pair → `Θ(n log n)` with higher constants
