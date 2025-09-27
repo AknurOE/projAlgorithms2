@@ -1,4 +1,4 @@
-# Assignment 1 — Divide & Conquer Algorithms ⚡
+# Assignment 1 — Divide & Conquer Algorithms
 
 ## Architecture
 This project implements four classic divide-and-conquer algorithms:
