@@ -1,83 +1,54 @@
-Assignment 1 — Divide & Conquer Algorithms
-Architecture
+# Assignment 1 — Divide & Conquer Algorithms ⚡
 
+## Architecture
 This project implements four classic divide-and-conquer algorithms:
 
-MergeSort: splits arrays into halves, merges linearly, reuses a buffer, and switches to insertion sort for small arrays.
+- **MergeSort**: splits arrays into halves, merges linearly, reuses a buffer, and switches to insertion sort for small arrays.  
+- **QuickSort**: randomized pivot; recurse on smaller partition (`O(log n)`).  
+- **Deterministic Select (Median-of-Medians)**: groups of 5, median-of-medians pivot, recurse only needed side.  
+- **Closest Pair (2D)**: sort by X, recursive split, strip check by Y (7–8 neighbors).
 
-QuickSort: uses a randomized pivot and always recurses on the smaller partition to keep recursion depth O(log n).
+A `Metrics` class tracks **execution time, comparisons, swaps, allocations, recursion depth**.
 
-Deterministic Select (Median-of-Medians): divides elements into groups of five, selects the median of medians as pivot, and recurses only into the required partition.
+---
 
-Closest Pair of Points (2D): sorts points by X-coordinate, recursively splits, and checks points in a vertical strip sorted by Y (7–8 neighbors per point).
+## Recurrence Analysis
+- **MergeSort**: `T(n) = 2T(n/2) + Θ(n)` → `Θ(n log n)`  
+- **QuickSort**: `T(n) = T(αn)+T((1-α)n)+Θ(n)` → `Θ(n log n)` avg, worst-case `Θ(n²)`  
+- **Deterministic Select**: `T(n) = T(n/5)+T(7n/10)+Θ(n)` → `Θ(n)`  
+- **Closest Pair**: `T(n) = 2T(n/2)+Θ(n)` → `Θ(n log n)`
 
-A Metrics class tracks recursion depth, execution time, number of comparisons, swaps, and memory allocations.
+---
 
-Recurrence Relations and Analysis
-MergeSort
+## Experimental Results 📊
 
-Recurrence:
-T(n) = 2T(n/2) + Θ(n)
-Master Theorem, Case 2 → T(n) = Θ(n log n).
+### Running Time vs n
+![Running Time](time_vs_n.png)  
+- MergeSort & QuickSort → `Θ(n log n)`  
+- Select → linear  
+- Closest Pair → `Θ(n log n)` with higher constants
 
-QuickSort
+### Recursion Depth vs n
+![Recursion Depth](depth_vs_n.png)  
+- MergeSort → logarithmic  
+- QuickSort → `O(log n)` avg
 
-Average-case recurrence:
-T(n) = T(αn) + T((1-α)n) + Θ(n) with randomized pivot.
-Akra–Bazzi intuition → T(n) = Θ(n log n)
-Worst-case: Θ(n²), but occurs rarely.
+---
 
-Deterministic Select
+## Discussion
+- JVM, cache, and garbage collection affect constant factors.  
+- QuickSort often faster than MergeSort.  
+- Deterministic Select slower than randomized select, but guarantees linear time.  
+- Closest Pair costly due to sorting + strip check, still `Θ(n log n)`.
 
-Recurrence:
-T(n) = T(n/5) + T(7n/10) + Θ(n)
-Akra–Bazzi → T(n) = Θ(n)
-Guaranteed linear time.
+---
 
-Closest Pair of Points (2D)
+## Conclusion 
+- Sorting algorithms → `Θ(n log n)`  
+- Deterministic Select → linear  
+- Closest Pair → `Θ(n log n)`  
+- Differences caused mainly by constants and runtime environment.
 
-Recurrence:
-T(n) = 2T(n/2) + Θ(n) (sorting + strip check)
-Master Theorem, Case 2 → T(n) = Θ(n log n).
-
-Experimental Results
-Running Time vs n
-
-Insert your graph here:
-
-
-MergeSort and QuickSort show Θ(n log n) growth.
-
-Deterministic Select shows linear growth.
-
-Closest Pair grows as Θ(n log n) with higher constants.
-
-Recursion Depth vs n
-
-Insert your graph here:
-
-
-MergeSort depth grows logarithmically.
-
-QuickSort remains O(log n) on average.
-
-Depth matches theoretical expectations.
-
-Discussion
-
-Constant factors vary due to caching, JVM optimizations, and garbage collection.
-
-QuickSort often outperforms MergeSort in practice, despite both being Θ(n log n).
-
-Deterministic Select is slower than randomized selection but guarantees linear time.
-
-Closest Pair is more costly due to sorting and strip management, though still Θ(n log n).
-
-Conclusion
-
-Theoretical bounds (Master Theorem, Akra–Bazzi intuition) match the experimental behavior:
-
-Sorting algorithms run in Θ(n log n).
 
 Deterministic Select is linear.
 
