@@ -20,7 +20,7 @@ public class Main {
         int[] sizes = {1000, 2000, 4000, 8000, 16000};
         int trials = 5;
         int warmup = 2;
-        String outFile = "results.csv";
+        String outFile = "docs/results.csv";
 
         runAllExperiments(sizes, trials, warmup, outFile, rnd);
     }
