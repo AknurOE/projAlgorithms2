@@ -30,7 +30,8 @@ A `Metrics` class tracks **execution time, comparisons, swaps, allocations, recu
 - Closest Pair → `Θ(n log n)` with higher constants
 
 ### Recursion Depth vs n
-![Recursion Depth](depth_vs_n.png)  
+<img width="1376" height="1101" alt="image" src="https://github.com/user-attachments/assets/be22f740-d64b-40a3-8b12-4c7298109d1f" />
+ 
 - MergeSort → logarithmic  
 - QuickSort → `O(log n)` avg
 
